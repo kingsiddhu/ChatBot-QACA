@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>ChatBot | by Siddharth | Trained with Neural Networks</title>
+        <!--link type="text/css" rel="stylesheet" href="./styleHealth.css"-->
+        <style>
+            
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #9a9a9a;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 0px 16px;
+    background-color: #5cb85c;
+    color: white;margin: 0px;
+  }
+  
+  .modal-body {padding: 2px 16px;}
+  
+  .modal-footer {
+    padding: 0px 16px;
+    background-color: #5cb85c;
+    color: white;
+    margin:0px
+  }
+  #myBtn{
+    color:#fff
+  }
+  #myBtn:hover{
+        color:#000000;
+    }
+        </style>
+        <script type='text/javascript' src='/eel.js'></script>
+        <script type='text/javascript'>
+
+            async function run() {
+                let msg = document.getElementById('input-box').value;
+                let output = document.getElementById('output-value');
+
+                // Call into Python so we can access the file system
+                let processed = await eel.convert(msg)();
+                let iframe = document.getElementById('iframe');
+                iframe.src = iframe.src;
+                setTimeout(function() {
+                    iframe.contentWindow.scrollTo(0, iframe.contentDocument.documentElement.scrollHeight);
+                }, 500)
+            }
+    
+        </script>
+        
+    </head>
+
+    <body style="background: linear-gradient(120deg,#005FE7,#f851ed);margin:0px;display: flex; height: 100vh;justify-content: center;align-items: center;">
+        
+        <div style="text-align: center;">
+            <iframe src="./log.html" style="height: 60vh; width: 75vw; border-radius: 1.1rem;border-width:10px;border-color: yellow;border-style:solid;" id="iframe"></iframe><br>
+            <p id="myBtn" style="font-weight: 600;font-size: large;">🛈 Click Enter only once. It takes time for me to understand what you asked.</p>
+            <!--a href="/log.html">a</a-->
+            <form onsubmit="run();return false;">
+                
+                <input class="inputf" name="q" type="text" autocomplete="off" autocorrect="off" autofocus="" style="font-size: 1.2rem; border-radius: 3rem; padding: 10px; width: 55vw;"
+                    id='input-box' placeholder='Talk to the Bot here' onfocus="this.value=''"++>
+                <input type="submit" hidden>
+            </form>
+
+                <br>
+        </div>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 style="margin:0px">Help</h2>
+              </div>
+              <div class="modal-body">
+                <p></p>
+                
+                <script src="./js/demo.js"></script>
+              </div>
+              
+            </div>
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+                
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
+                
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+              
+                var videoplay = document.getElementsByClassName("videoP")[0];
+                
+                // When the user clicks the button, open the modal 
+                btn.onclick = function() {
+                  modal.style.display = "block";
+                }
+                
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                  modal.style.display = "none";
+                }
+                
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    modal.style.display = "none";
+                  }
+                }
+              </script>
+    </body>
+
+</html>

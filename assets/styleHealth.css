@@ -1,0 +1,19 @@
+.user{
+    color: Green;
+    /*font-size: 1.3rem;*/
+}
+.bot{
+    color: rgb(179, 3, 3);
+}
+*{
+    background-color:burlywood;
+    font-size: 1.2rem;
+}
+.msglnuser{
+    text-align: right;
+}
+img{
+    width: 40%;
+    height: auto;
+    border-radius: 5%;
+}

@@ -1,0 +1,6 @@
+eel
+nltk
+pickle
+keras
+json
+gtts

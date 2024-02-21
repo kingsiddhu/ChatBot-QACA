@@ -1,0 +1,50 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there","Hey","Hola", "Hello", "Good day"],
+         "responses": ["hello, thanks for asking", "good to see you again", "hi there, how can i help?","hey there","oh hey","Greetings"],
+         "context": [""]
+        },
+        {"tag": "greeting2",
+         "patterns": ["How are you", "Is anyone there?","Hi, How is it going?","How are you doing?","Nice to meet you.","It is a pleasure to meet you."],
+         "responses": ["Very well, thanks.","I'm doing well.","Good."],
+         "context": [""]
+        },
+        {"tag": "goodbye",
+         "patterns": ["bye", "see you later", "goodbye", "nice chatting to you, bye", "till next time"],
+         "responses": ["see you!", "have a nice day", "bye! come back again soon."],
+         "context": [""]
+        },
+        {"tag": "thanks",
+         "patterns": ["thanks", "thank you", "that's helpful", "awesome, thanks", "thanks for helping me"],
+         "responses": ["happy to help!", "any time!", "my pleasure"],
+         "context": [""]
+        },
+        {"tag": "noanswer",
+         "patterns": [],
+         "responses": ["sorry, can't understand you", "please give me more info", "not sure i understand"],
+         "context": [""]
+        },
+        {"tag": "Mute",
+         "patterns": ["Can you shut up",
+         "mute",
+         "please be quiet"
+        ],
+         "responses": ["Ok"],
+         "context": ["Mute"]
+        },
+        {"tag": "Talk",
+         "patterns": ["Can you talk",
+         "unmute",
+         "I can't hear you",
+         "I cant hear you"
+        ],
+         "responses": ["Ok fine I will talk"],
+         "context": ["Talk"]
+        },
+        {"tag": "elaborate",
+    "patterns": ["elaborate", "tell me more", "provide more information", "explain further", "can you elaborate"],
+    "responses": ["Sure! Let me provide more information.",
+                   "Certainly! Here's some additional information.",
+                   "I'd be happy to elaborate. Here you go:"]}
+   ]
+}

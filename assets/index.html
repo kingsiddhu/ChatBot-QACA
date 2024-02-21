@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>ChatBot | by Siddharth | Trained with Neural Networks</title>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <script type='text/javascript' src='/eel.js'></script>
+        <script type='text/javascript'>
+
+            async function run() {
+                let msg = document.getElementById('input-box').value;
+                let output = document.getElementById('output-value');
+
+                // Call into Python so we can access the file system
+                let processed = await eel.convert(msg)();
+                output.innerHTML = processed;
+                
+            }
+    
+        </script>
+        
+    </head>
+
+    <body style="background: linear-gradient(120deg,#005FE7,#4ABC45);margin:0px">
+        <div style=" display:flex; justify-content:center; align-items: center; height: 65vh">
+            <div class="outputstyle">
+                <form onsubmit="run();return false;">
+                    <div class="forms">
+                        <div class="Placeholder" data-adhe="false" data-alt="false">
+                            <div class="divone">
+                                <div class="inputsep">
+                                    <div class="main">
+                                        <div class="sep"></div>
+                                        <input class="input" name="q" type="text" autocomplete="off" autocorrect="off" autofocus=""
+                                            id='input-box' placeholder='Talk to the Bot here' onfocus="this.value=''"++>
+                                        <input type="submit" hidden>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <div style="text-align: center; font-size: 32px" id='output-value' class="forms">Output will be shown here</div>
+            </div>
+        </div>
+        <div style="height: 15vh"> </div>
+    </body>
+
+</html>
