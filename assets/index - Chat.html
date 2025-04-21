@@ -7,7 +7,13 @@
         <title>ChatBot | by Siddharth | Trained with Neural Networks</title>
         <!--link type="text/css" rel="stylesheet" href="./styleHealth.css"-->
         <style>
-            
+            button{ 
+              font-size: 100%;
+              font-weight: 500;
+              border-radius: 100%;
+              width: 7vh;
+              height: 7vh
+            }
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -102,6 +108,46 @@
             }
     
         </script>
+        <script>
+          eel.expose(SwitchJS)
+          async function SwitchJS(a, b) {
+            console.log(a, b)
+            if (a == "ar") {
+              if (!b){
+                eel.switch("ar")();
+                eel.say("حسناً")();
+              }
+              
+              let i = document.getElementById("change");
+              i.innerHTML = '<button onclick="SwitchJS(\'en\', false);">English</button>';
+              let a = document.getElementsByClassName("inputf")[0];
+              
+              a.dir = "rtl";
+              a.placeholder = "تحدث إلى الروبوت هنا";
+              let iframe = document.getElementById('iframe');
+                iframe.src = iframe.src;
+                setTimeout(function() {
+                    iframe.contentWindow.scrollTo(0, iframe.contentDocument.documentElement.scrollHeight);
+                }, 500)
+            } else {
+                
+                if (!b) {
+                  eel.switch("en")();
+                  eel.say("Sure")();
+                }
+              let i = document.getElementById("change");
+              i.innerHTML = '<button onclick="SwitchJS(\'ar\', false);">العربية</button>';
+              let a = document.getElementsByClassName("inputf")[0];
+              a.dir = "ltr";
+              a.placeholder = "Talk to the Bot here";
+              let iframe = document.getElementById('iframe');
+                iframe.src = iframe.src;
+                setTimeout(function() {
+                    iframe.contentWindow.scrollTo(0, iframe.contentDocument.documentElement.scrollHeight);
+                }, 500)
+            }
+          }
+        </script>
         
     </head>
 
@@ -113,11 +159,12 @@
             <!--a href="/log.html">a</a-->
             <form onsubmit="run();return false;">
                 
-                <input class="inputf" name="q" type="text" autocomplete="off" autocorrect="off" autofocus="" style="font-size: 1.2rem; border-radius: 3rem; padding: 10px; width: 55vw;"
+                <input class="inputf" name="q" type="text" autocomplete="off" autocorrect="off" autofocus="" style="font-size: 1.2rem; border-radius: 3rem; padding: 10px; width: 55vw;" dir="ltr"
                     id='input-box' placeholder='Talk to the Bot here' onfocus="this.value=''"++>
                 <input type="submit" hidden>
             </form>
-
+            <br>
+            <div id="change"><button onclick="SwitchJS('ar', false);">العربية</button></div>
                 <br>
         </div>
         <div id="myModal" class="modal">
@@ -129,7 +176,13 @@
                 <h2 style="margin:0px">Help</h2>
               </div>
               <div class="modal-body">
-                <p></p>
+                <p>Welcome to our Cancer Information Chatbot! 🤖🩺<br>
+                  Our chatbot is your personalized guide to understanding and navigating the world of cancer. Whether you have questions about symptoms, treatments, or want in-depth scientific explanations, we've got you covered.<br>
+                  Key Features:<br>
+                  - Conversational Interface: Engage in natural conversations to explore cancer-related topics.<br>
+                  - Voice Note Capability: Receive answers in voice format for a more interactive experience. (Oh you can also mute me by asking me to mute)<br>
+                  - Personalized Information: Get tailored responses based on your specific queries and needs.<br>
+                  Feel free to ask anything related to cancer, from general overviews to detailed scientific explanations. Let's journey through cancer awareness together!</p>
                 
                 <script src="./js/demo.js"></script>
               </div>

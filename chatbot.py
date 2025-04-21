@@ -5,10 +5,10 @@ import pickle
 import nltk
 from nltk.stem import WordNetLemmatizer
 
-model = load_model('chatbot_model.h5')
-intents = json.loads(open('intents.main.json').read())
-words = pickle.load(open('words.pkl', 'rb'))
-classes = pickle.load(open('classes.pkl', 'rb'))
+model = load_model('model\\chatbot_model.en.h5')
+intents = json.loads(open('model\\intents.main.en.json', encoding='utf8').read())
+words = pickle.load(open('model\\words.en.pkl', 'rb'))
+classes = pickle.load(open('model\\classes.en.pkl', 'rb'))
 
 
 lemmatizer = WordNetLemmatizer()

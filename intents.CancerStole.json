@@ -1,5 +1,10 @@
 {"intents":[
       {
+        "tag": "Introduction",
+        "patterns": ["What is this guide about?", "Can you provide an overview of the document?"],
+        "responses": ["This guide provides comprehensive information about cancer services offered at NCCCR.", "It's an informative document detailing the various aspects of cancer care available at NCCCR."]
+      },
+      {
         "tag": "Services Offered",
         "patterns": ["What services are provided at NCCCR for cancer patients?"],
         "responses": ["NCCCR offers a wide range of services including diagnostic, treatment, and supportive care for various types of cancers."]

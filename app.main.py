@@ -1,12 +1,5 @@
-import random
-import os
-from gtts import gTTS
-import eel
-from playsound import playsound
-from chatbot import *
-
-
-
+# -*- coding: utf-8 -*-
+import json
 try:
 	# Opening JSON file
     with open('settings.json', 'r') as openfile:
@@ -16,11 +9,21 @@ except:
 	settings ={
     "mute" : False,
     "FirstTime" : True,
+    "Language" : "en"
 }
 	with open("settings.json", "w") as outfile:
 		json.dump(settings, outfile)
 
 if settings["FirstTime"]== True:
+    import sys, os
+    print("This may take a while since it is the first time running the program")
+    path= sys.path[0][:-7]
+    os.system(f'"{path}python\\python.exe" -m pip install gtts')
+    os.system(f'"{path}python\\python.exe" -m pip install nltk')
+    os.system(f'"{path}python\\python.exe" -m pip install pickle')
+    os.system(f'"{path}python\\python.exe" -m pip install keras')
+    os.system(f'"{path}python\\python.exe" -m pip install tensorflow')
+    os.system(f'"{path}python\\python.exe" -m pip install playsound==1.2.2')
     import nltk
     print("This may take a while")
     nltk.download("punkt")
@@ -30,18 +33,84 @@ if settings["FirstTime"]== True:
     with open("settings.json", "w") as outfile:
         json.dump(settings, outfile)
 
+import random
+import os
+from gtts import gTTS
+import eel
+from playsound import playsound
+import json
+from keras.models import load_model
+import numpy as np
+import pickle
+import nltk
+from nltk.stem import WordNetLemmatizer
 
+
+lemmatizer = WordNetLemmatizer()
+""""""
+#MAIN THINKING
+def clean_up_sentence(sentence):
+    sentence_words = nltk.word_tokenize(sentence)
+    sentence_words = [lemmatizer.lemmatize(
+        word.lower()) for word in sentence_words]
+    return sentence_words
+# return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
+def bow(sentence, words, show_details=True):
+    # tokenize the pattern
+    sentence_words = clean_up_sentence(sentence)
+    # bag of words - matrix of N words, vocabulary matrix
+    bag = [0]*len(words)
+    for s in sentence_words:
+        for i, w in enumerate(words):
+            if w == s:
+                # assign 1 if current word is in the vocabulary position
+                bag[i] = 1
+                if show_details:
+                    print("found in bag: %s" % w)
+    return(np.array(bag))
+def predict_class(sentence, model):
+    # filter out predictions below a threshold
+    p = bow(sentence, words, show_details=False)
+    res = model.predict(np.array([p]))[0]
+    ERROR_THRESHOLD = 0.25
+    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
+    # sort by strength of probability
+    results.sort(key=lambda x: x[1], reverse=True)
+    return_list = []
+    for r in results:
+        return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+    return return_list
+#PREDICTION END
+
+"""
+
+from chatbot import *"""
+
+if settings["Language"] == "ar":
+    model = load_model('model\\chatbot_model.ar.h5')
+    intents = json.loads(open('model\\intents.main.ar.json', encoding='utf8').read())
+    words = pickle.load(open('model\\words.ar.pkl', 'rb'))
+    classes = pickle.load(open('model\\classes.ar.pkl', 'rb'))
+else:
+    model = load_model('model\\chatbot_model.en.h5')
+    intents = json.loads(open('model\\intents.main.en.json', encoding='utf8').read())
+    words = pickle.load(open('model\\words.en.pkl', 'rb'))
+    classes = pickle.load(open('model\\classes.en.pkl', 'rb'))
 
 context = "Beg"
-beg = True
+"""
+beg = False"""
 mute = settings["mute"]
 
 def Text_to_speech(Message):
-    global mute
+    global mute, settings
     if not mute:
         if os.path.exists("DataFlair.mp3"):
             os.remove("DataFlair.mp3")
-        speech = gTTS(text = str(Message).replace("<br>"," "))
+        if settings["Language"] == "ar":
+            speech = gTTS(text = str(Message).replace("<br>"," "), lang="ar")
+        else:
+            speech = gTTS(text = str(Message).replace("<br>"," "))
         speech.save('DataFlair.mp3')
         playsound('DataFlair.mp3', block=False)
 
@@ -82,48 +151,85 @@ def getResponse(ints, intents_json,contextToUse):
 
 
 def chatbot_response(msg,context):
-    ints = predict_class(msg, model)
-    res = getResponse(ints, intents,context)
-    return res
+    global intents
+    try:
+        
+        ints = predict_class(msg, model)
+        # If no intent is recognized, inform the user
+        
+
+        res = getResponse(ints, intents,context)
+        return res
+    except ValueError:
+        if settings["Language"] == "en":
+            return "Sorry, I can't understand. Please provide more information or try a different question.", None, None
+        else:
+            return "آسف، لا أستطيع أن أفهم. يرجى تقديم المزيد من المعلومات أو تجربة سؤال آخر.", None, None
 
 
-# Creating GUI with tkinter
+# Creating GUI with eel
 
 eel.init('assets')
+
+
+
 option = {
     'mode': 'custom',
     'args': ['node_modules/electron/dist/electron.exe', '.']
 }
 output = ""
-f= open('./assets/log.html', 'w')
-f.write("""<link type="text/css" rel="stylesheet" href="./styleHealth.css">
-<div class='msgln' ><b class='bot' >SAiS </b>Hi, I am SAiS Chatbot your virtual healthcare guide who will help you give information regarding cancer.<br>
-Before we start please choose one of the five choices<br>
+f= open('./assets/log.html', 'w', encoding="utf8")
+if settings["Language"] == "en":
+    f.write("""<link type="text/css" rel="stylesheet" href="./styleHealth.css">
+<div class='msgln' ><b class='bot' >SAiS </b>Hi, I am QACA Chatbot your virtual healthcare guide who will help you give information regarding cancer.<br>
+Here are some sample questions you can try<br>
 1.What is breast cancer <br>
 2.What is colorectal cancer <br>
 3.Methods to identify cancer in asymptomatic people<br>
 4.treatment methods for breast cancer <br>
-5.treatments methods for colorectal cancer<br> </div >
-(1,2,3,4,5)""")
-Text_to_speech("""Hi, I am SAiS Chatbot your virtual healthcare guide who will help you give information regarding cancer.
-Before we start please choose one of the five choices.
+5.treatments methods for colorectal cancer<br>""")
+    Text_to_speech("""Hi, I am QACA Chatbot your virtual healthcare guide who will help you give information regarding cancer.
+Here are some sample questions you can try
 1.What is breast cancer.
 2.What is colorectal cancer.
 3.Methods to identify cancer in asymptomatic people.
 4.treatment methods for breast cancer.
 5.treatments methods for colorectal cancer.""")
+    
+
+else:
+    f.write("""<link type="text/css" rel="stylesheet" href="./styleHealth.css">
+<div class='msgln' ><b class='bot' >SAiS </b>مرحباً، أنا QACA Chatbot مرشدك الافتراضي للرعاية الصحية الذي سيساعدك في تقديم المعلومات المتعلقة بالسرطان.
+إليك بعض نماذج الأسئلة التي يمكنك تجربتها<br>
+ما هو سرطان الثدي.1<br>
+ما هو سرطان القولون والمستقيم.2<br>
+طرق التعرف على السرطان لدى الأشخاص الذين لا تظهر عليهم أعراضه.3<br>
+طرق علاج سرطان الثدي.4<br>
+طرق علاج سرطان القولون والمستقيم.5</div>""")
+    Text_to_speech("""مرحباً، أنا QACA Chatbot مرشدك الافتراضي للرعاية الصحية الذي سيساعدك في تقديم المعلومات المتعلقة بالسرطان.
+إليك بعض نماذج الأسئلة التي يمكنك تجربتها
+ما هو سرطان الثدي.1
+ما هو سرطان القولون والمستقيم.2
+طرق التعرف على السرطان لدى الأشخاص الذين لا تظهر عليهم أعراضه.3
+طرق علاج سرطان الثدي.4
+طرق علاج سرطان القولون والمستقيم.5""")
+    pass
 f.close()
+eel.SwitchJS(settings["Language"],True)
 
 @eel.expose
 def convert(msg):
-    global beg, mute, context
+    global intents, mute, context, settings, classes, words, model
+    if not msg.isalpha:
+        msg = msg[::-1]
     print(msg)
-    with open("./assets/log.html", "a") as message:
+    #print(intents)
+    with open("./assets/log.html", "a", encoding="utf8") as message:
         message.write("\n")
         message.write(f"<div class='msglnuser' >%s<b class='user' > You</b><br> </div >" % (msg))
     global output
     ##Beginning Only
-    if beg==True:
+    """if beg==True:
         if msg=='1':
             ans="Breast cancer is a type of cancer that forms in the cells of the breast. It primarily affects breast tissue and can develop in different parts of the breast, most commonly in the ducts that carry milk to the nipple (ductal carcinoma) or the glands that produce milk (lobular carcinoma).<br>"
             Text_to_speech(ans)
@@ -170,7 +276,7 @@ def convert(msg):
                 bot.write("\n")
                 bot.write(f"<div class='msgln' ><b class='bot' >SAiS </b>sorry can you choose from 1 to 5 only for now?<br> </div >")
             return 0
-    #Beginning End
+    #Beginning End"""
     
 
     output = chatbot_response(str(msg), context)
@@ -183,10 +289,17 @@ def convert(msg):
             mute = True
         elif context=="Talk":
             mute = False
+        elif context=="Switch":
+            if settings["Language"] == "ar":
+                eel.SwitchJS("en", False)
+
+            else:
+                eel.SwitchJS("ar", False)
+
     except:
         pass
     
-    with open("./assets/log.html", "a") as bot:
+    with open("./assets/log.html", "a" , encoding="utf8") as bot:
         bot.write("\n")
         bot.write(f"<div class='msgln' ><b class='bot' >SAiS </b>%s<br> </div >" % (str(output[0])))
     Text_to_speech(str(output[0]))
@@ -203,6 +316,30 @@ def convert(msg):
     #    eel.sleep(10)
     return str(output[0])
 
+
+
+def switch(a):
+    global classes, model, words, intents, settings
+    settings["Language"] = a
+    with open("settings.json", "w") as outfile:
+        json.dump(settings, outfile)
+    del model
+    del intents
+    del words
+    del classes
+    model = load_model(f'model\\chatbot_model.{a}.h5')
+    intents = json.loads(open(f'model\\intents.main.{a}.json', encoding='utf8').read())
+    words = pickle.load(open(f'model\\words.{a}.pkl', 'rb'))
+    classes = pickle.load(open(f'model\\classes.{a}.pkl', 'rb'))
+
+eel.expose(switch)
+
+def say(a):
+    with open("./assets/log.html", "a", encoding="utf8") as bot:
+        bot.write(f"<div class='msgln' ><b class='bot' >SAiS </b>{a}<br> </div >" )
+    Text_to_speech(a)
+
+eel.expose(say)
 
 eel.start('index - Chat.html', size=(800, 600))
 settings["mute"] = mute

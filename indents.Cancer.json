@@ -22,8 +22,7 @@
         "I want to know about methods to detect cancer without symptoms.",
         "Could you elaborate on the methods used to find cancer when there are no symptoms?",
         "Methods to identify cancer in asymptomatic people",
-        "What are the ways to find cancer early?",
-        "How do doctors diagnose cancer"],
+        "What are the ways to find cancer early?"],
     "responses": [
         "Sure! Cancer in asymptomatic individuals can be detected through various methods such as imaging tests (like MRI, CT scans), blood tests, Biopsy, Genetic Testing, Endoscopy and Colonoscopy, Pap Smear and HPV Testing, Prostate-Specific Antigen (PSA) Test, and Physical Examination. These tests aid in early detection, providing better chances for successful treatment.",
         "Absolutely! Early detection methods for cancer in asymptomatic individuals include screenings like mammograms, colonoscopies, and blood tests for specific tumor markers. These tests are vital for timely diagnosis and effective treatment.",
@@ -52,394 +51,39 @@
     {"tag": "BreastCancer",
     "patterns": ["What is breast cancer"],
     "responses": ["Breast cancer is a type of cancer that forms in the cells of the breast. It primarily affects breast tissue and can develop in different parts of the breast, most commonly in the ducts that carry milk to the nipple (ductal carcinoma) or the glands that produce milk (lobular carcinoma).<br>"],
-    "context": ["MoreInfoBC", "picAvail"]
+    "context": ["MoreInfoBC"]
     },
     {"tag": "MoreInfoBC",
     "patterns": ["Tell me more info about breast cancer"],
-    "responses": ["Breast cancer is one of the most common cancers among women worldwide, but it can also occur in men, albeit less frequently. Early detection through regular screenings and prompt medical attention significantly improves treatment outcomes and survival rates. Therefore, being aware of breast cancer symptoms, risk factors, and seeking timely medical advice is crucial for effective management and better prognosis."]
+    "responses": ["Breast cancer is one of the most common cancers among women worldwide, but it can also occur in men, albeit less frequently. Early detection through regular screenings and prompt medical attention significantly improves treatment outcomes and survival rates. Therefore, being aware of breast cancer symptoms, risk factors, and seeking timely medical advice is crucial for effective management and better prognosis."],
+    "context": ["cancer","breast"]
     },
-    {"tag": "TreatmentForBC",
-    "patterns": ["treatment methods for breast cancer",
-    "What are the primary treatments available for breast cancer?",
-    "Can you provide an overview of the different treatments used in treating breast cancer?",
-    "What types of treatments are commonly employed for breast cancer?"],
-    "responses": ["Treatment for breast cancer depends on various factors like the cancer's stage, type, whether it's hormone-sensitive, and an individual's overall health. Here are the primary treatment methods commonly used: Surgery, Radiation Therapy, Chemotherapy, Hormone Therapy, Targeted Therapy, Immunotherapy, Reconstructive Surgery"]
-    },
-
-
     {"tag": "ColorectalCancer",
     "patterns": ["What is colorectal cancer"],
     "responses": ["Colorectal cancer, also known as bowel cancer or colon cancer, refers to cancer that develops in the colon or rectum. The colon is the large intestine, while the rectum is the final part of the large intestine before the anus. Colorectal cancer typically starts as small, benign growths called polyps, which can gradually develop into cancer over time."],
-    "context": ["MoreInfoCC", "picAvail"]
+    "context": ["MoreInfoCC"]
     },
     {"tag": "MoreInfoCC",
     "patterns": ["Tell me more info about colorectal cancer"],
     "responses": ["Colorectal cancer is a significant health concern worldwide. Early detection through regular screenings, awareness of risk factors, and seeking medical advice for concerning symptoms can significantly improve the chances of successful treatment and survival rates."],
     "context": ["cancer","colon"]
     },
+    {"tag": "TreatmentForBC",
+    "patterns": ["treatment methods for breast cancer",
+    "What are the primary treatments available for breast cancer?",
+    "Can you provide an overview of the different treatments used in treating breast cancer?",
+    "What types of treatments are commonly employed for breast cancer?"],
+    "responses": ["Treatment for breast cancer depends on various factors like the cancer's stage, type, whether it's hormone-sensitive, and an individual's overall health. Here are the primary treatment methods commonly used: Surgery, Radiation Therapy, Chemotherapy, Hormone Therapy, Targeted Therapy, Immunotherapy, Reconstructive Surgery"],
+    "context": ["cancer","breast","treatment"]
+    },
     {"tag": "TreatmentForCC",
     "patterns": ["treatments methods for colorectal cancer",
     "What are the available treatments for colorectal cancer?",
     "Can you tell me about the various treatment options for colorectal cancer?",
     "What kind of treatments are typically used to treat colorectal cancer?"],
-    "responses": ["Treatment for colorectal cancer depends on the stage, location, and individual factors. Here are the primary treatment methods commonly used: Surgery, Radiation Therapy, Chemotherapy, Hormone Therapy, Immunotherapy, Stoma Surgery, Clinical Trials"]
+    "responses": ["Treatment for colorectal cancer depends on the stage, location, and individual factors. Here are the primary treatment methods commonly used: Surgery, Radiation Therapy, Chemotherapy, Hormone Therapy, Immunotherapy, Stoma Surgery, Clinical Trials"],
+    "context": ["cancer","colon","treatment"]
     },
-
-
-    {
-        "tag": "ProstateCancer",
-        "patterns": ["Tell me about prostate cancer", "What is prostate cancer"],
-        "responses": ["Prostate cancer begins in the prostate gland and is common in older men. Risk factors include age and family history. Diagnosis may involve a PSA test and a prostate biopsy."],
-        "context": ["MoreInfo_ProstateCancer", "picAvail"]
-    },
-    {
-        "tag": "OvarianCancer",
-        "patterns": ["what is ovarian cancer"],
-        "responses": ["Ovarian cancer symptoms can be subtle, including bloating and pelvic pain. Treatment may involve surgery and chemotherapy. Detection methods include pelvic exams and imaging tests."],
-        "context": ["MoreInfo_OvarianCancer", "picAvail"]
-    },
-    {
-        "tag": "Leukemia",
-        "patterns": ["What is leukemia?", "Tell me about blood cancers"],
-        "responses": ["Leukemia is a type of blood cancer affecting the bone marrow. Treatment may involve chemotherapy, stem cell transplantation, and targeted therapies. Diagnosis includes blood tests and bone marrow biopsy."],
-        "context": ["MoreInfo_Leukemia", "picAvail"]
-    },
-    {
-        "tag": "Lymphoma",
-        "patterns": ["What are the different types of lymphoma?", "what is lymphoma"],
-        "responses": ["Lymphoma is a cancer of the lymphatic system. Types include Hodgkin and non-Hodgkin lymphoma. Treatment may involve chemotherapy, immunotherapy, and radiation. Diagnosis includes imaging tests and biopsy."],
-        "context": ["MoreInfo_Lymphoma", "picAvail"]
-    },
-    {
-        "tag": "Melanoma",
-        "patterns": ["Tell me about melanoma", "What is skin cancer?"],
-        "responses": ["Melanoma is a type of skin cancer often linked to sun exposure. Signs include changes in moles. Treatment may involve surgery, immunotherapy, and targeted therapy. Early detection is crucial for a good prognosis."],
-        "context": ["MoreInfo_Melanoma", "picAvail"]
-    },
-    {
-        "tag": "PancreaticCancer",
-        "patterns": ["what is pancreatic cancer"],
-        "responses": ["Pancreatic cancer symptoms include abdominal pain and weight loss. Treatment may involve surgery, chemotherapy, and radiation. Diagnosis includes imaging tests and biopsy."],
-        "context": ["MoreInfo_PancreaticCancer", "picAvail"]
-    },
-    {
-        "tag": "BladderCancer",
-        "patterns": ["Tell me about bladder cancer", "what is bladder cancer"],
-        "responses": ["Bladder cancer affects the bladder lining. Risk factors include smoking and exposure to certain chemicals. Treatment may involve surgery, immunotherapy, and chemotherapy. Diagnosis includes cystoscopy and biopsy."],
-        "context": ["MoreInfo_BladderCancer", "picAvail"]
-    },
-    {
-        "tag": "KidneyCancer",
-        "patterns": ["what is kidney cancer"],
-        "responses": ["Kidney cancer symptoms may include blood in the urine and lower back pain. Treatment may involve surgery, targeted therapy, and immunotherapy. Diagnosis includes imaging tests and biopsy."],
-        "context": ["MoreInfo_KidneyCancer", "picAvail"]
-    },
-    {
-        "tag": "LiverCancer",
-        "patterns": ["Tell me about liver cancer", "what is liver cancer"],
-        "responses": ["Liver cancer can be primary or secondary. Risk factors include chronic liver diseases. Treatment may involve surgery, ablation, and targeted therapy. Diagnosis includes imaging tests and biopsy."],
-        "context": ["MoreInfo_LiverCancer", "picAvail"]
-    },
-    {
-        "tag": "ThyroidCancer",
-        "patterns": ["What are the types of thyroid cancer?", "Tell me about thyroid cancer", "what is thyroid cancer"],
-        "responses": ["Thyroid cancer includes papillary, follicular, and medullary types. Treatment may involve surgery, radioactive iodine, and hormone therapy. Diagnosis includes thyroid biopsy and imaging tests."],
-        "context": ["MoreInfo_ThyroidCancer", "picAvail"]
-    },
-    {
-        "tag": "CervicalCancer",
-        "patterns": ["Tell me about cervical cancer", "What is cervical cancer?"],
-        "responses": ["Cervical cancer affects the cervix. Risk factors include HPV infection. Treatment may involve surgery, radiation, and chemotherapy. Diagnosis includes Pap tests and HPV testing."],
-        "context": ["MoreInfo_CervicalCancer", "picAvail"]
-    },
-    {
-        "tag": "GastricCancer",
-        "patterns": ["What is gastric cancer?", "Tell me about gastric cancer"],
-        "responses": ["Gastric cancer affects the stomach lining. Symptoms include indigestion and weight loss. Treatment may involve surgery, chemotherapy, and targeted therapy. Diagnosis includes endoscopy and biopsy."],
-        "context": ["MoreInfo_GastricCancer", "picAvail"]},
-
-    {
-        "tag": "MoreInfo_LungCancer",
-        "patterns": ["Tell me more about lung cancer", "Can you provide additional information on lung cancer?", "I need more details about lung cancer"],
-        "responses": ["Certainly, lung cancer starts in the lungs and can cause symptoms like persistent cough, chest pain, and shortness of breath. Diagnosis involves imaging tests and biopsies."]
-    },
-    {
-        "tag": "MoreInfo_ProstateCancer",
-        "patterns": ["Tell me more about prostate cancer", "Can you provide additional information on prostate cancer?", "I need more details about prostate cancer"],
-        "responses": ["Of course, prostate cancer begins in the prostate gland and is common in older men. Risk factors include age and family history. Diagnosis may involve a PSA test and a prostate biopsy."]
-    },
-    {
-        "tag": "MoreInfo_OvarianCancer",
-        "patterns": ["Tell me more about ovarian cancer", "Can you provide additional information on ovarian cancer?", "I need more details about ovarian cancer"],
-        "responses": ["Certainly, ovarian cancer symptoms can be subtle, including bloating and pelvic pain. Treatment may involve surgery and chemotherapy. Detection methods include pelvic exams and imaging tests."]
-    },
-    {
-        "tag": "MoreInfo_Leukemia",
-        "patterns": ["Tell me more about leukemia", "Can you provide additional information on leukemia?", "I need more details about leukemia"],
-        "responses": ["Of course, leukemia is a type of blood cancer affecting the bone marrow. Treatment may involve chemotherapy, stem cell transplantation, and targeted therapies. Diagnosis includes blood tests and bone marrow biopsy."]
-    },
-    {
-        "tag": "MoreInfo_Lymphoma",
-        "patterns": ["Tell me more about lymphoma", "Can you provide additional information on lymphoma?", "I need more details about lymphoma"],
-        "responses": ["Certainly, lymphoma is a cancer of the lymphatic system. Types include Hodgkin and non-Hodgkin lymphoma. Treatment may involve chemotherapy, immunotherapy, and radiation. Diagnosis includes imaging tests and biopsy."]
-    },
-    {
-        "tag": "MoreInfo_Melanoma",
-        "patterns": ["Tell me more about melanoma", "Can you provide additional information on melanoma?", "I need more details about melanoma"],
-        "responses": ["Of course, melanoma is a type of skin cancer often linked to sun exposure. Signs include changes in moles. Treatment may involve surgery, immunotherapy, and targeted therapy. Early detection is crucial for a good prognosis."]
-    },
-    {
-        "tag": "MoreInfo_PancreaticCancer",
-        "patterns": ["Tell me more about pancreatic cancer", "Can you provide additional information on pancreatic cancer?", "I need more details about pancreatic cancer"],
-        "responses": ["Certainly, pancreatic cancer symptoms include abdominal pain and weight loss. Treatment may involve surgery, chemotherapy, and radiation. Diagnosis includes imaging tests and biopsy."]
-    },
-    {
-        "tag": "MoreInfo_BladderCancer",
-        "patterns": ["Tell me more about bladder cancer", "Can you provide additional information on bladder cancer?", "I need more details about bladder cancer"],
-        "responses": ["Of course, bladder cancer affects the bladder lining. Risk factors include smoking and exposure to certain chemicals. Treatment may involve surgery, immunotherapy, and chemotherapy. Diagnosis includes cystoscopy and biopsy."]
-    },
-    {
-        "tag": "MoreInfo_KidneyCancer",
-        "patterns": ["Tell me more about kidney cancer", "Can you provide additional information on kidney cancer?", "I need more details about kidney cancer"],
-        "responses": ["Certainly, kidney cancer symptoms may include blood in the urine and lower back pain. Treatment may involve surgery, targeted therapy, and immunotherapy. Diagnosis includes imaging tests and biopsy."]
-    },
-    {
-        "tag": "MoreInfo_LiverCancer",
-        "patterns": ["Tell me more about liver cancer", "Can you provide additional information on liver cancer?", "I need more details about liver cancer"],
-        "responses": ["Of course, liver cancer can be primary or secondary. Risk factors include chronic liver diseases. Treatment may involve surgery, ablation, and targeted therapy. Diagnosis includes imaging tests and biopsy."]
-    },
-    {
-        "tag": "MoreInfo_ThyroidCancer",
-        "patterns": ["Tell me more about thyroid cancer", "Can you provide additional information on thyroid cancer?", "I need more details about thyroid cancer"],
-        "responses": ["Certainly, thyroid cancer includes papillary, follicular, and medullary types. Treatment may involve surgery, radioactive iodine, and hormone therapy. Diagnosis includes thyroid biopsy and imaging tests."]
-    },
-    {
-        "tag": "MoreInfo_CervicalCancer",
-        "patterns": ["Tell me more about cervical cancer", "Can you provide additional information on cervical cancer?", "I need more details about cervical cancer"],
-        "responses": ["Of course, cervical cancer affects the cervix. Risk factors include HPV infection. Treatment may involve surgery, radiation, and chemotherapy. Diagnosis includes Pap tests and HPV testing."]
-    },
-    {
-        "tag": "MoreInfo_GastricCancer",
-        "patterns": ["Tell me more about gastric cancer", "Can you provide additional information on gastric cancer?", "I need more details about gastric cancer"],
-        "responses": ["Certainly, gastric cancer affects the stomach lining. Symptoms include indigestion and weight loss. Treatment may involve surgery, chemotherapy, and targeted therapy. Diagnosis includes endoscopy and biopsy."]
-    },
-
-    {
-        "tag": "TreatmentFor_LungCancer",
-        "patterns": ["Tell me about lung cancer treatments", "What are the treatment options for lung cancer?", "How is lung cancer treated?"],
-        "responses": ["Treatment for lung cancer may include surgery, chemotherapy, radiation therapy, and targeted therapies. The choice depends on the stage and type of lung cancer."]
-    },
-    {
-        "tag": "TreatmentFor_ProstateCancer",
-        "patterns": ["Tell me about prostate cancer treatments", "What are the treatment options for prostate cancer?", "How is prostate cancer treated?"],
-        "responses": ["Treatment for prostate cancer may involve surgery, radiation therapy, hormone therapy, and sometimes chemotherapy. The approach depends on factors like the stage and aggressiveness of the cancer."]
-    },
-    {
-        "tag": "TreatmentFor_OvarianCancer",
-        "patterns": ["Tell me about ovarian cancer treatments", "What are the treatment options for ovarian cancer?", "How is ovarian cancer treated?"],
-        "responses": ["Treatment for ovarian cancer may involve surgery, chemotherapy, and targeted therapy. The specific treatment plan depends on factors like the stage of the cancer and the patient's overall health."]
-    },
-    {
-        "tag": "TreatmentFor_Leukemia",
-        "patterns": ["Tell me about leukemia treatments", "What are the treatment options for leukemia?", "How is leukemia treated?"],
-        "responses": ["Treatment for leukemia may involve chemotherapy, targeted therapy, radiation therapy, and stem cell transplantation. The choice depends on the type of leukemia and other factors."]
-    },
-    {
-        "tag": "TreatmentFor_Lymphoma",
-        "patterns": ["Tell me about lymphoma treatments", "What are the treatment options for lymphoma?", "How is lymphoma treated?"],
-        "responses": ["Treatment for lymphoma may include chemotherapy, immunotherapy, radiation therapy, and sometimes stem cell transplantation. The specific approach depends on the type and stage of lymphoma."]
-    },
-    {
-        "tag": "TreatmentFor_Melanoma",
-        "patterns": ["Tell me about melanoma treatments", "What are the treatment options for melanoma?", "How is melanoma treated?"],
-        "responses": ["Treatment for melanoma may involve surgery, immunotherapy, targeted therapy, and sometimes chemotherapy. Early detection is crucial for more effective treatment."]
-    },
-    {
-        "tag": "TreatmentFor_PancreaticCancer",
-        "patterns": ["Tell me about pancreatic cancer treatments", "What are the treatment options for pancreatic cancer?", "How is pancreatic cancer treated?"],
-        "responses": ["Treatment for pancreatic cancer may include surgery, chemotherapy, radiation therapy, and targeted therapy. The choice depends on factors like the stage and location of the cancer."]
-    },
-    {
-        "tag": "TreatmentFor_BladderCancer",
-        "patterns": ["Tell me about bladder cancer treatments", "What are the treatment options for bladder cancer?", "How is bladder cancer treated?"],
-        "responses": ["Treatment for bladder cancer may involve surgery, immunotherapy, chemotherapy, and sometimes radiation therapy. The approach depends on factors like the stage and grade of the cancer."]
-    },
-    {
-        "tag": "TreatmentFor_KidneyCancer",
-        "patterns": ["Tell me about kidney cancer treatments", "What are the treatment options for kidney cancer?", "How is kidney cancer treated?"],
-        "responses": ["Treatment for kidney cancer may involve surgery, targeted therapy, immunotherapy, and sometimes radiation therapy. The choice depends on factors like the stage and type of kidney cancer."]
-    },
-    {
-        "tag": "TreatmentFor_LiverCancer",
-        "patterns": ["Tell me about liver cancer treatments", "What are the treatment options for liver cancer?", "How is liver cancer treated?"],
-        "responses": ["Treatment for liver cancer may include surgery, ablation, embolization, and targeted therapy. The choice depends on factors like the stage and location of the cancer."]
-    },
-    {
-        "tag": "TreatmentFor_ThyroidCancer",
-        "patterns": ["Tell me about thyroid cancer treatments", "What are the treatment options for thyroid cancer?", "How is thyroid cancer treated?"],
-        "responses": ["Treatment for thyroid cancer may involve surgery, radioactive iodine therapy, hormone therapy, and sometimes targeted therapy. The specific approach depends on factors like the type and stage of thyroid cancer."]
-    },
-    {
-        "tag": "TreatmentFor_CervicalCancer",
-        "patterns": ["Tell me about cervical cancer treatments", "What are the treatment options for cervical cancer?", "How is cervical cancer treated?"],
-        "responses": ["Treatment for cervical cancer may include surgery, radiation therapy, chemotherapy, and sometimes targeted therapy. The choice depends on factors like the stage and type of cervical cancer."]
-    },
-    {
-        "tag": "TreatmentFor_GastricCancer",
-        "patterns": ["Tell me about gastric cancer treatments", "What are the treatment options for gastric cancer?", "How is gastric cancer treated?"],
-        "responses": ["Treatment for gastric cancer may involve surgery, chemotherapy, radiation therapy, and targeted therapy. The choice depends on factors like the stage and location of the cancer."]
-    },
-    {
-        "tag": "LungCancer_SideEffects",
-        "patterns": ["What are the side effects of lung cancer treatment?", "Tell me about lung cancer treatment side effects", "What can be the side effects of treating lung cancer?"],
-        "responses": ["Common side effects of lung cancer treatment may include fatigue, nausea, hair loss, changes in appetite, and increased susceptibility to infections."]
-      },
-      {
-        "tag": "ProstateCancer_SideEffects",
-        "patterns": ["What are the side effects of prostate cancer treatment?", "Tell me about prostate cancer treatment side effects", "What can be the side effects of treating prostate cancer?"],
-        "responses": ["Side effects of prostate cancer treatment may include erectile dysfunction, urinary incontinence, fatigue, and hormonal changes."]
-      },
-      {
-        "tag": "OvarianCancer_SideEffects",
-        "patterns": ["What are the side effects of ovarian cancer treatment?", "Tell me about ovarian cancer treatment side effects", "What can be the side effects of treating ovarian cancer?"],
-        "responses": ["Side effects of ovarian cancer treatment may include nausea, fatigue, hair loss, changes in fertility, and emotional distress."]
-      },
-      {
-        "tag": "Leukemia_SideEffects",
-        "patterns": ["What are the side effects of leukemia treatment?", "Tell me about leukemia treatment side effects", "What can be the side effects of treating leukemia?"],
-        "responses": ["Leukemia treatment side effects may include fatigue, increased risk of infections, bruising or bleeding, hair loss, and changes in appetite."]
-      },
-      {
-        "tag": "Lymphoma_SideEffects",
-        "patterns": ["What are the side effects of lymphoma treatment?", "Tell me about lymphoma treatment side effects", "What can be the side effects of treating lymphoma?"],
-        "responses": ["Side effects of lymphoma treatment may include nausea, fatigue, hair loss, increased susceptibility to infections, and changes in blood cell counts."]
-      },
-      {
-        "tag": "Melanoma_SideEffects",
-        "patterns": ["What are the side effects of melanoma treatment?", "Tell me about melanoma treatment side effects", "What can be the side effects of treating melanoma?"],
-        "responses": ["Melanoma treatment side effects may include fatigue, skin reactions, nausea, flu-like symptoms, and changes in appetite."]
-      },
-      {
-        "tag": "PancreaticCancer_SideEffects",
-        "patterns": ["What are the side effects of pancreatic cancer treatment?", "Tell me about pancreatic cancer treatment side effects", "What can be the side effects of treating pancreatic cancer?"],
-        "responses": ["Side effects of pancreatic cancer treatment may include nausea, fatigue, digestive issues, weight loss, and changes in blood sugar levels."]
-      },
-      {
-        "tag": "BladderCancer_SideEffects",
-        "patterns": ["What are the side effects of bladder cancer treatment?", "Tell me about bladder cancer treatment side effects", "What can be the side effects of treating bladder cancer?"],
-        "responses": ["Side effects of bladder cancer treatment may include urinary incontinence, fatigue, nausea, changes in appetite, and increased susceptibility to infections."]
-      },
-      {
-        "tag": "KidneyCancer_SideEffects",
-        "patterns": ["What are the side effects of kidney cancer treatment?", "Tell me about kidney cancer treatment side effects", "What can be the side effects of treating kidney cancer?"],
-        "responses": ["Side effects of kidney cancer treatment may include fatigue, nausea, changes in blood pressure, increased risk of infections, and changes in kidney function."]
-      },
-      {
-        "tag": "LiverCancer_SideEffects",
-        "patterns": ["What are the side effects of liver cancer treatment?", "Tell me about liver cancer treatment side effects", "What can be the side effects of treating liver cancer?"],
-        "responses": ["Side effects of liver cancer treatment may include fatigue, digestive issues, changes in liver function, increased risk of infections, and changes in blood clotting."]
-      },
-      {
-        "tag": "ThyroidCancer_SideEffects",
-        "patterns": ["What are the side effects of thyroid cancer treatment?", "Tell me about thyroid cancer treatment side effects", "What can be the side effects of treating thyroid cancer?"],
-        "responses": ["Side effects of thyroid cancer treatment may include fatigue, changes in thyroid hormone levels, weight changes, and changes in appetite."]
-      },
-      {
-        "tag": "CervicalCancer_SideEffects",
-        "patterns": ["What are the side effects of cervical cancer treatment?", "Tell me about cervical cancer treatment side effects", "What can be the side effects of treating cervical cancer?"],
-        "responses": ["Side effects of cervical cancer treatment may include fatigue, nausea, changes in fertility, pelvic pain, and emotional distress."]
-      },
-      {
-        "tag": "GastricCancer_SideEffects",
-        "patterns": ["What are the side effects of gastric cancer treatment?", "Tell me about gastric cancer treatment side effects", "What can be the side effects of treating gastric cancer?"],
-        "responses": ["Side effects of gastric cancer treatment may include nausea, changes in appetite, fatigue, digestive issues, and changes in blood counts."]
-      },
-      {
-        "tag": "LungCancer_Symptoms",
-        "patterns": ["What are the symptoms of lung cancer?", "Tell me about lung cancer symptoms", "How does lung cancer manifest?"],
-        "responses": ["Common symptoms of lung cancer include persistent cough, chest pain, shortness of breath, fatigue, and unexplained weight loss."]
-      },
-      {
-        "tag": "ProstateCancer_Symptoms",
-        "patterns": ["What are the symptoms of prostate cancer?", "Tell me about prostate cancer symptoms", "How does prostate cancer present?"],
-        "responses": ["Prostate cancer symptoms may include difficulty urinating, blood in the urine or semen, erectile dysfunction, and discomfort in the pelvic area."]
-      },
-      {
-        "tag": "OvarianCancer_Symptoms",
-        "patterns": ["What are the symptoms of ovarian cancer?", "Tell me about ovarian cancer symptoms", "How does ovarian cancer show itself?"],
-        "responses": ["Ovarian cancer symptoms can be subtle and may include bloating, pelvic pain, changes in bowel habits, and frequent urination."]
-      },
-      {
-        "tag": "Leukemia_Symptoms",
-        "patterns": ["What are the symptoms of leukemia?", "Tell me about leukemia symptoms", "How does leukemia manifest?"],
-        "responses": ["Leukemia symptoms may include fatigue, pale skin, frequent infections, unexplained weight loss, and easy bruising or bleeding."]
-      },
-      {
-        "tag": "Lymphoma_Symptoms",
-        "patterns": ["What are the symptoms of lymphoma?", "Tell me about lymphoma symptoms", "How does lymphoma present?"],
-        "responses": ["Lymphoma symptoms can include swollen lymph nodes, fever, night sweats, unexplained weight loss, and fatigue."]
-      },
-      {
-        "tag": "Melanoma_Symptoms",
-        "patterns": ["What are the symptoms of melanoma?", "Tell me about melanoma symptoms", "How does melanoma manifest?"],
-        "responses": ["Melanoma symptoms often involve changes in the skin, such as the appearance of new moles, changes in the size or color of existing moles, and itching or tenderness."]
-      },
-      {
-        "tag": "PancreaticCancer_Symptoms",
-        "patterns": ["What are the symptoms of pancreatic cancer?", "Tell me about pancreatic cancer symptoms", "How does pancreatic cancer show itself?"],
-        "responses": ["Pancreatic cancer symptoms may include abdominal pain, jaundice, unexplained weight loss, loss of appetite, and digestive problems."]
-      },
-      {
-        "tag": "BladderCancer_Symptoms",
-        "patterns": ["What are the symptoms of bladder cancer?", "Tell me about bladder cancer symptoms", "How does bladder cancer manifest?"],
-        "responses": ["Bladder cancer symptoms may include blood in the urine, frequent urination, pain during urination, and lower back pain."]
-      },
-      {
-        "tag": "KidneyCancer_Symptoms",
-        "patterns": ["What are the symptoms of kidney cancer?", "Tell me about kidney cancer symptoms", "How does kidney cancer present?"],
-        "responses": ["Kidney cancer symptoms may include blood in the urine, persistent pain in the side, lumps or mass in the abdomen, and unexplained weight loss."]
-      },
-      {
-        "tag": "LiverCancer_Symptoms",
-        "patterns": ["What are the symptoms of liver cancer?", "Tell me about liver cancer symptoms", "How does liver cancer manifest?"],
-        "responses": ["Liver cancer symptoms can include abdominal pain or discomfort, jaundice, unexplained weight loss, and swelling in the abdomen."]
-      },
-      {
-        "tag": "ThyroidCancer_Symptoms",
-        "patterns": ["What are the symptoms of thyroid cancer?", "Tell me about thyroid cancer symptoms", "How does thyroid cancer show itself?"],
-        "responses": ["Thyroid cancer symptoms may include a lump in the neck, changes in voice, difficulty swallowing, and persistent neck pain."]
-      },
-      {
-        "tag": "CervicalCancer_Symptoms",
-        "patterns": ["What are the symptoms of cervical cancer?", "Tell me about cervical cancer symptoms", "How does cervical cancer manifest?"],
-        "responses": ["Cervical cancer symptoms may include abnormal vaginal bleeding, pelvic pain, pain during intercourse, and changes in menstrual patterns."]
-      },
-      {
-        "tag": "GastricCancer_Symptoms",
-        "patterns": ["What are the symptoms of gastric cancer?", "Tell me about gastric cancer symptoms", "How does gastric cancer show itself?"],
-        "responses": ["Gastric cancer symptoms can include indigestion, abdominal discomfort, unexplained weight loss, and blood in the stool."]
-      },
-      {
-        "tag": "BreastCancer_Symptoms",
-        "patterns": ["What are the symptoms of breast cancer?", "Tell me about breast cancer symptoms", "What are the signs of breast cancer?"],
-        "responses": ["Common symptoms of breast cancer include a lump in the breast, changes in breast size or shape, nipple changes, breast pain, and skin changes."]
-      },
-      {
-        "tag": "ColorectalCancer_Symptoms",
-        "patterns": ["What are the symptoms of colorectal cancer?", "Tell me about colorectal cancer symptoms", "What are the signs of colorectal cancer?"],
-        "responses": ["Symptoms of colorectal cancer may include changes in bowel habits, blood in the stool, abdominal pain, unexplained weight loss, and fatigue."]
-      },
-      {
-        "tag": "BreastCancer_SideEffects",
-        "patterns": ["What are the side effects of breast cancer treatment?", "Tell me about breast cancer treatment side effects", "What can be the side effects of treating breast cancer?"],
-        "responses": ["Side effects of breast cancer treatment may include fatigue, nausea, hair loss, changes in appetite, and increased susceptibility to infections."]
-      },
-      {
-        "tag": "ColorectalCancer_SideEffects",
-        "patterns": ["What are the side effects of colorectal cancer treatment?", "Tell me about colorectal cancer treatment side effects", "What can be the side effects of treating colorectal cancer?"],
-        "responses": ["Side effects of colorectal cancer treatment may include fatigue, digestive issues, nausea, changes in appetite, and increased susceptibility to infections."]
-      },
-
     {"tag": "FoodAvoid",
     "patterns":["what are the foods to avoid",
     "What foods are bad to eat",
@@ -570,15 +214,10 @@
     {"tag":"MenCancer",
     "patterns":["Can men get breast cancer?",
     "What are the symptoms of breast cancer in men?",
+    "How common is breast cancer in males?",
     "Are there risk factors for men developing breast cancer?",
     "What should men do if they notice changes in their breast tissue?"],
     "responses":["Yes, men can develop breast cancer, although it is less common than in women. Breast cancer in men occurs when malignant cells form in the breast tissue. Men have a small amount of breast tissue behind their nipples, which means they are susceptible to developing breast cancer, although it's relatively rare compared to women."]
-    },
-    {"tag":"Animal",
-    "patterns":["Can Animals get breast cancer?",
-    "What are the symptoms of breast cancer in animals?",
-    "Are there risk factors for animals developing breast cancer?"],
-    "responses":["Yes, animals can get breast cancer, referred to as mammary gland tumors. Female dogs and cats, especially certain breeds, are prone. Spaying before the first heat cycle significantly reduces the risk. "]
     },
     {"tag":"StagesOfCancer",
     "patterns":["What does it mean when breast cancer is in stage 0?",
@@ -622,195 +261,5 @@
     "Can you explain which parts of the body men should pay extra attention to for melanoma?",
     "Where is the most common site for skin cancer occurrence in men?"],
     "responses":["Melanoma primarily occurs on the skin, but it can also develop in other parts of the body that contain pigment-producing cells called melanocytes. While skin melanomas are the most common, melanoma can occur in various areas, known as extracutaneous or non-cutaneous sites. These less common sites where melanoma can originate include: Eyes (Ocular Melanoma), Mucous Membranes, Nails (Subungual Melanoma), Internal Organs (Visceral Melanoma). <br>In men, the most common site for melanoma is typically the trunk, which includes the chest and back. Melanoma can develop on any part of the body, but for men, the torso (trunk) is often where melanomas are frequently found. This includes areas such as the back, shoulders, and chest."]
-    },
-    {"tag":"AdvantagesOfThisAI",
-    "patterns":["What are the benifits of this App compared to GPT",
-    "What are the benifits of this App compared to ChatGPT"],
-    "responses":["ChatGPT is indeed powerful but this app is designed to give you information regarding Cancer."]},
-    {"tag":"Pain",
-    "patterns":["Is cancer Painful?"],
-    "responses":["Cancer can be associated with pain, but it varies. Some experience pain due to tumors or treatments. Consult healthcare for personalized support."]},
-    {"tag":"Common",
-    "patterns":["Why is cancer so common",
-    "How Common is cancer"],
-    "responses":["Cancer's commonality is influenced by factors like genetics, lifestyle, and environmental exposures, leading to uncontrolled cell growth. Prevention and early detection are crucial."]},
-    {"tag":"Carcinogens",
-    "patterns":["Carcinogens for cancer"],
-    "responses":["Certain risk factors for colorectal cancer include:<br>Age (risk increases with age)<br>Family history of colorectal cancer<br>Inflammatory bowel diseases (e.g., Crohn's disease, ulcerative colitis)<br>Inherited syndromes (e.g., Lynch syndrome)<br>Diet high in red and processed meats<br>Lack of physical activity<br>Obesity<br>Smoking<br>Heavy alcohol use<br>Limiting these factors can help reduce the risk of colorectal cancer. Regular screenings are essential for early detection."]},
-    {"tag":"Tested",
-    "patterns":["Where can you get tested for cancer in qatar?"],
-    "responses":["In Qatar, you can get tested for cancer at medical facilities like:<br>Hamad Medical Corporation (HMC) hospitals<br>Sidra Medicine<br>Qatar Red Crescent Society's Mobile Screening Unit<br>Private hospitals and clinics<br>Contact healthcare providers "]},
-    {"tag":"Remedies",
-    "patterns":["Natural Remedies for cancer"],
-    "responses":["Natural remedies are not proven substitutes for cancer treatment. Consult healthcare professionals for evidence-based care. Complementary approaches like a balanced diet, exercise, and stress reduction may support well-being but should not replace medical interventions. Always seek guidance from medical experts for cancer management."]},
-    {"tag":"Fever",
-    "patterns":["Can cancer start with a simple fever"],
-    "responses":["Cancer itself doesn't typically cause a fever. However, certain types of cancer can indirectly lead to fever. Fever is often a response to infections, and cancer can weaken the immune system, making the body more susceptible to infections. Additionally, some cancers, such as lymphomas, can cause fever as part of their symptoms."]},
-    {"tag":"Ayurvedha",
-    "patterns":["is there any treatment for cancer in ayurvedha?",
-    "what is ayurvedha in cancer",
-    "which is better ayurvedha or homeopathy in treating cancer"],
-    "responses":["Neither Ayurveda nor homeopathy has been scientifically proven to cure cancer. Cancer treatment requires evidence-based approaches like surgery, chemotherapy, radiation therapy, and immunotherapy. It's crucial to consult with conventional healthcare professionals for proven treatments."]},
-    {"tag":"deadliness",
-    "patterns":["How deadly is cancer"],
-    "responses":["Cancer can have varying levels of severity and prognosis depending on the type, stage at diagnosis, and treatment options. Some cancers have high survival rates when detected early and treated effectively, while others may be more aggressive and challenging to treat."]},
-    {
-        "tag": "AnimalsAndCancerFactors",
-        "patterns": ["Do animals pass any factors that cause cancer?", "Can animals transmit cancer factors?", "Factors from animals causing cancer"],
-        "responses": ["There is no evidence that animals transmit factors causing cancer to humans."]
-      },
-      {
-        "tag": "AnimalsAndCancer",
-        "patterns": ["Do animals get cancer?", "Can animals have cancer?", "Cancer in animals"],
-        "responses": ["Yes, animals can develop cancer, although the types may differ from human cancers."]
-      },
-      {
-        "tag": "CellReestablishmentAfterCancer",
-        "patterns": ["Do cells destroyed by cancer rebuild themselves?", "Cell reestablishment after cancer", "Regeneration of cells after cancer"],
-        "responses": ["Cells destroyed by cancer typically do not reestablish themselves as new individuals."]
-      },
-      {
-        "tag": "AliensAndCancerCure",
-        "patterns": ["Can aliens cure cancer?", "Aliens curing cancer with their powers", "Extraterrestrial cure for cancer"],
-        "responses": ["There is no scientific evidence to support the idea that aliens can cure cancer."]
-      },
-      {
-        "tag": "HairfallLesseningInChemotherapy",
-        "patterns": ["Can hair fall be reduced in chemotherapy?", "Reducing hair loss during cancer treatment", "Preventing hairfall in chemotherapy"],
-        "responses": ["Hairfall can be a side effect of chemotherapy, and there are methods to minimize it, such as using cold caps."]
-      },
-      {
-        "tag": "CancerTreatment",
-        "patterns": ["How to treat cancer?", "Methods for cancer treatment", "Treating cancer"],
-        "responses": ["Cancer treatment methods include surgery, chemotherapy, radiation therapy, immunotherapy, and targeted therapy."]
-      },
-      {
-        "tag": "CancerSymptoms",
-        "patterns": ["What are the symptoms of cancer?", "Identifying cancer symptoms", "Signs of cancer"],
-        "responses": ["Common symptoms of cancer include unexplained weight loss, changes in bowel habits, persistent cough, and unusual lumps."]
-      },
-      {
-        "tag": "IdentifyingCancer",
-        "patterns": ["How to know if I have cancer?", "Detecting cancer in early stages", "Identifying cancer in oneself"],
-        "responses": ["Early detection methods include regular screenings, self-examinations, and paying attention to unusual symptoms."]
-      },
-      {
-        "tag": "CancerMedicationSideEffects",
-        "patterns": ["What are the side effects of cancer medications?", "Side effects of cancer drugs", "Medication effects on cancer"],
-        "responses": ["Common side effects of cancer medications include nausea, fatigue, hair loss, and changes in appetite."]
-      },
-      {
-        "tag": "BreastVsColonCancer",
-        "patterns": ["Difference between breast and colon cancer", "Comparing breast and colon cancer", "Breast cancer vs. colon cancer"],
-        "responses": ["Breast cancer primarily affects the breast tissue, while colon cancer starts in the colon or rectum. The locations, symptoms, and treatments differ."]
-      },
-      {
-        "tag": "BreastCancerExplanation",
-        "patterns": ["Explain in detail about breast cancer", "Detailed information on breast cancer", "Comprehensive explanation of breast cancer"],
-        "responses": ["Breast cancer is a type of cancer that starts in the cells of the breast. It can occur in both men and women, and early detection is crucial for successful treatment."]
-      },
-      {
-        "tag": "TypesOfCancer",
-        "patterns": ["What are the different types of cancer?", "Exploring cancer types", "Listing cancer varieties"],
-        "responses": ["Cancer includes various types such as breast, lung, colorectal, prostate, and more, each with unique characteristics and treatment approaches."]
-      },
-      {
-        "tag": "NumberOfTypeOfCancers",
-        "patterns": ["How many types of cancer are there?", "Count of cancer types", "Total number of cancer varieties"],
-        "responses": ["There are over 100 types of cancer, each originating in different cells and tissues of the body."]
-      },
-      {
-        "tag": "IdentifyingCancerSymptoms",
-        "patterns": ["How to identify cancer based on symptoms?", "Recognizing cancer through symptoms", "Symptom-based cancer identification"],
-        "responses": ["Common signs include persistent changes in bowel or bladder habits, unexplained weight loss, and unusual lumps or growths."]
-      },
-      {
-        "tag": "IsChemotherapyPainful",
-        "patterns": ["Is chemotherapy painful?", "Pain during chemotherapy", "Discomfort in chemotherapy"],
-        "responses": ["Chemotherapy can cause various side effects, and some individuals may experience pain, but it varies from person to person."]
-      },
-      {
-        "tag": "MethodsOfTreatingCancer",
-        "patterns": ["What are the different methods of treating cancer?", "Treating cancer using different approaches", "Cancer treatment techniques"],
-        "responses": ["Cancer treatments include surgery, chemotherapy, radiation therapy, immunotherapy, and targeted therapy, tailored to the type and stage of cancer."]
-      },
-      {
-        "tag": "HospitalsForCancerInQatar",
-        "patterns": ["How many hospitals are available for identifying and treating cancer in Qatar?", "Cancer hospitals in Qatar", "Healthcare facilities for cancer in Qatar"],
-        "responses": ["Qatar has several hospitals with specialized oncology departments, such as Hamad Medical Corporation and others."]
-      },
-      {
-        "tag": "ScientificExplanationOfCancer",
-        "patterns": ["What is cancer in scientific terms?", "Scientific explanation of cancer", "Cancer explained scientifically",
-        "Explain scientifically the cancer and treatments", "Scientific explanation of cancer", "In-depth understanding of cancer"],
-        "responses": ["Cancer is a group of diseases characterized by uncontrolled cell growth and the ability to invade other tissues. It results from genetic mutations.",
-        "Certainly! Cancer is a group of diseases characterized by the uncontrolled growth and spread of abnormal cells. The fundamental unit of life, the cell, undergoes genetic mutations that lead to unchecked proliferation."]
-      },
-      {
-        "tag": "BetterThanChatGPT",
-        "patterns": ["Why are you better than ChatGPT?", "Advantages over ChatGPT", "Differences between you and ChatGPT"],
-        "responses": ["I provide voice note answers, and my responses are tailored to cancer-related queries, offering specialized information."]
-      },
-      {
-        "tag": "AppPictureExplanation",
-        "patterns": ["Can this app provide picture explanation?", "Visual explanations in the app", "App features for visual understanding"],
-        "responses": ["Yes, the app can provide visual explanations, including images and diagrams to enhance understanding."]
-      },
-      {
-        "tag": "ScientificCancerAndTreatments",
-        "patterns": ["Can you explain scientifically the cancer and treatments?", "Scientific explanation of cancer and treatments", "In-depth scientific insight into cancer and its treatments"],
-        "responses": ["Yes, I can provide scientific explanations, covering topics such as cancer formation, chemotherapy procedures, and more. Select from the given options."]
-      },
-      {
-        "tag": "CancerRelatedCareers",
-        "patterns": ["Career opportunities related to studying cancer", "Jobs in the field of cancer research", "Careers in cancer studies"],
-        "responses": ["Careers related to cancer studies include oncologist, researcher, nurse, genetic counselor, and pharmaceutical scientist."]
-      },
-      {
-        "tag": "CancerInQatar",
-        "patterns": ["Cancer in Qatar", "Prevalence of cancer in Qatar", "Cancer statistics in Qatar"],
-        "responses": ["Cancer is a significant health concern in Qatar, with several healthcare facilities providing diagnosis and treatment services."]
-      },
-
-
-      {
-        "tag": "SpecialCoursesOnCancer",
-        "patterns": ["Special courses to study about cancer", "Cancer-related educational programs", "Courses on cancer studies"],
-        "responses": ["Various educational institutions offer specialized courses on cancer studies. Some examples include courses in oncology, cancer biology, and cancer research."]
-      },
-      {
-        "tag": "ScientificExplanationOptions",
-        "patterns": ["What is cancer", "How is it formed", "How is chemotherapy done"],
-        "responses": ["Sure! Please choose from the following options for a more detailed scientific explanation:", "1. What is cancer", "2. How is it formed", "3. How is chemotherapy done"]
-      },
-      {
-        "tag": "VoiceNoteCapability",
-        "patterns": ["Why are you better than ChatGPT", "Advantages of this app over ChatGPT", "Differentiation from ChatGPT"],
-        "responses": ["I offer a unique advantage with voice note capability, allowing me to provide answers in voice format for a more interactive and personalized experience."]
-      },
-      {
-        "tag": "PictureExplanationCapability",
-        "patterns": ["Can this app provide picture explanation", "Visual aids for understanding", "Graphical representation of information"],
-        "responses": ["Yes, this app has the capability to provide picture explanations, offering a visual understanding of complex information related to cancer."]
-      },
-      {
-        "tag": "BetterThanGoogle",
-        "patterns": ["How are you better than Google", "Advantages over Google", "Differences between you and Google"],
-        "responses": ["While Google is a powerful search engine, I specialize in providing curated and personalized information on cancer-related topics. I offer a conversational interface, voice note capability, and the ability to explain complex medical concepts in an accessible way."]
-      },
-      {
-        "tag": "AccessToExpertInformation",
-        "patterns": ["Access to expert information", "Expertise in cancer knowledge", "Can you provide information from experts"],
-        "responses": ["Absolutely! I have access to a wealth of information from medical experts and research databases, ensuring accurate and up-to-date details on various aspects of cancer."]
-      },
-      {
-        "tag": "ConversationalInterfaceAdvantage",
-        "patterns": ["Advantages of a conversational interface", "Why choose a chatbot", "Benefits of talking to a chatbot"],
-        "responses": ["The conversational interface offers a more engaging and interactive experience. You can ask questions, seek clarifications, and receive information in a conversational manner, making the learning process about cancer more user-friendly."]
-      },
-      {
-        "tag": "PersonalizedInformation",
-        "patterns": ["Personalized information on cancer", "Tailored responses to my needs", "Can you customize information for me"],
-        "responses": ["Certainly! I can provide personalized information based on your specific queries and needs, offering a more tailored and relevant experience compared to generic search results."]
-      }
+    }
 ]}
