@@ -2,3 +2,6 @@ __pycache__
 build/
 trash/
 myenv/
+
+*.pkl
+*.h5
